@@ -1,9 +1,10 @@
 shinyUI(pageWithSidebar(
-  headerPanel("Example plot"),
+  headerPanel("Find classification cutoff for maxizing weighted sum of True Positive Rate (TPR) and True Negative Rate (TNR)"),
   sidebarPanel(
-    sliderInput('mu', 'Guess at the mu', 70, min = 60, max = 80, step = 0.05)
+    sliderInput('a', 'Enter weight for TPR (weight for NPR = 1-weight for TPR)', .5, min = 0, max = 1, step = .01),
+    sliderInput('co', 'Enter desired cutoff', .5, min = 0, max = 1, step = .01)    
   ),
   mainPanel(
-    plotOutput('newHist')
+    plotOutput('newPlot')
   )
 ))
